@@ -7,7 +7,7 @@
 * formát zápisu znaků
   * ```int A[] = {hodnoty sloupců v big edian}```
 * Použit generátor (***[dotmatrixtool.com](http://dotmatrixtool.com/)***)
-```cpp
+```c
 int A[] = {0x00, 0x7f, 0xff, 0xcc, 0xcc, 0xff, 0x7f, 0x00};
 int G[] = {0x00, 0x7e, 0xff, 0xc3, 0xcb, 0xef, 0x6e, 0x00};
 int E[] = {0x00, 0xff, 0xff, 0xdb, 0xdb, 0xc3, 0xc3, 0x00};
@@ -41,14 +41,14 @@ int T[] = {0x00, 0xc0, 0xc0, 0xff, 0xff, 0xc0, 0xc0, 0x00};
 
 ### **Návod**
 1. reset Reg R8 (0xff, P1) -> (0x80, P2)
-    ```cpp
+    ```c
     ZapisNaReg(R8, 0);
     Spi(RegidRef);
     UlozHodnotu();
     ```
 2. zvolení Reg R1 -> R6 (0x--, P2)
 3. zapsání hodnot na Reg (0xff ^ hod, P1)
-    ```cpp
+    ```c
     ZapisNaReg(R1, G[i]);
     ZapisNaReg(R2, O[i]);
     ZapisNaReg(R3, O[i]);
@@ -63,7 +63,7 @@ int T[] = {0x00, 0xc0, 0xc0, 0xff, 0xff, 0xc0, 0xc0, 0x00};
     }
     ```
 4. potvrzení Reg (0x00, P2) -> (0xff, P1) *//reset hodnoty*
-   ```cpp
+   ```c
    void UlozHodnotu() {
         Spi(Refresh);
         outb(R0, P2);
@@ -72,17 +72,17 @@ int T[] = {0x00, 0xc0, 0xc0, 0xff, 0xff, 0xc0, 0xc0, 0x00};
     }
    ```
 5. zobrazení sloupce R8 (sloupec, P1) -> (0x80, P2)
-    ```cpp
+    ```c
     Spi(Refresh);
     ZapisNaReg(R8, Sloupce[i]);
     ```
 6. reset registru R8
-    ```cpp
+    ```c
     Spi(RegidRef);
     ZapisNaReg(R8, 0);
     ```
 7. Potvrdit hodnoty registrů
-    ```cpp
+    ```c
     Spi(RegidRef);
     UlozHodnotu();
     ```
@@ -90,7 +90,7 @@ int T[] = {0x00, 0xc0, 0xc0, 0xff, 0xff, 0xc0, 0xc0, 0x00};
 
 ### **Porty**
 
-```cpp
+```c
     #define P1 0x300 /*out*/
     #define P2 0x301 /*out*/
     #define P3 0x300 /*in*/
