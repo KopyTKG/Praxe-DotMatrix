@@ -95,4 +95,6 @@ int T[] = {0x00, 0xc0, 0xc0, 0xff, 0xff, 0xc0, 0xc0, 0x00};
     #define P2 0x301 /*out*/
     #define P3 0x300 /*in*/
     #define P4 0x301 /*in*/
-````
+```
+### *Periferie*
+    ![DotMatrix](periferie.png)
