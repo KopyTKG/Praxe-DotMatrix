@@ -97,4 +97,4 @@ int T[] = {0x00, 0xc0, 0xc0, 0xff, 0xff, 0xc0, 0xc0, 0x00};
     #define P4 0x301 /*in*/
 ```
 ### *Periferie*
-    ![DotMatrix](periferie.jpg)
+![DotMatrix](https://github.com/KopyTKG/Praxe-DotMatrix/blob/main/periferie.png?raw=true)
